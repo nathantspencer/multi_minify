@@ -1,7 +1,11 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use v5.10;
+no warnings 'experimental::smartmatch';
+
 use Term::ANSIColor;
+use File::Basename;
 
 #================================= SUBROUTINES ================================#
 
@@ -27,6 +31,7 @@ sub printError
   return;
 }
 
+
 # params: string input dir, string output dir
 sub batch
 {
@@ -38,17 +43,46 @@ sub batch
     my @files = readdir $input_dir;
     closedir $input_dir;
 
-    print "$_\n" for @files;
+    my $file;
+    foreach $file (@files)
+    {
+      my @exts = qw(.json .xml);
+      my ($name, $dir, $ext) = fileparse($file, @exts);
+      if($name eq '.' || $name eq '..')
+      {
+        next;
+      }
+
+      my $input = $_[0] . $file;
+      my $output = $_[1] . 'min_' . $file;
+      minify($input, $output);
+    }
   }
   else
   {
     printError("subroutine batch expected 2 arguments, had $number_of_arguments.");
   }
 
-
   return;
 }
 
+
+# params: str input file, str output file
+sub minify
+{
+  my @exts = qw(.json .xml);
+  my $file = $_[0];
+  my ($name, $dir, $ext) = fileparse($file, @exts);
+
+  for ($ext)
+  {
+      when ('.json') { print "json\n"; #kickoff json }
+      when ('.xml') { print "xml\n"; #kickoff xml }
+      default { }
+  }
+
+  return;
+}
 
 
 #============================== MAIN BEGINS HERE ==============================#
