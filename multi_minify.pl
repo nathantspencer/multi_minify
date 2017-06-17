@@ -2,10 +2,12 @@
 use strict;
 use warnings;
 use v5.10;
-no warnings 'experimental::smartmatch';
 
 use Term::ANSIColor;
 use File::Basename;
+use IPC::System::Simple qw(system capture);
+
+no warnings 'experimental::smartmatch';
 
 #================================= SUBROUTINES ================================#
 
@@ -79,14 +81,14 @@ sub minify
   {
       when ('.json')
       {
-        # $success = KICKOFF JSON
+        system($^X, "minifiers/minify_json.pl");
         print color('green');
         print "$file --> $_[1]\n";
         print color('reset');
       }
       when ('.xml')
       {
-        # $success = KICKOFF XML
+        system($^X, "minifiers/minify_xml.pl");
         print color('green');
         print "$file --> $_[1]\n";
         print color('reset');
