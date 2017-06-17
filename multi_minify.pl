@@ -5,6 +5,7 @@ use Term::ANSIColor;
 
 #================================= SUBROUTINES ================================#
 
+# params: string error message
 sub printError
 {
   print color('bold red');
@@ -18,13 +19,36 @@ sub printError
   }
   else
   {
-    print("unknown error occurred.")
+    print("subroutine printError expected an arugment but had none.")
   }
   print color('reset');
   print "\n";
 
   return;
 }
+
+# params: string input dir, string output dir
+sub batch
+{
+  my $number_of_arguments = @_;
+
+  if(@_ > 1)
+  {
+    opendir my $input_dir, $_[0] or die printError("input directory $_[0] could not be opened.\n");
+    my @files = readdir $input_dir;
+    closedir $input_dir;
+
+    print "$_\n" for @files;
+  }
+  else
+  {
+    printError("subroutine batch expected 2 arguments, had $number_of_arguments.");
+  }
+
+
+  return;
+}
+
 
 
 #============================== MAIN BEGINS HERE ==============================#
@@ -50,11 +74,11 @@ else
     print "Starting multi_minify in batch mode...\n";
     if(! -d $ARGV[1])
     {
-      printError("input argument is batch, but output argument is single file.")
+      printError("input argument is batch, but output argument is not a directory")
     }
     else
     {
-      # BEGIN BATCH MODE
+      batch($ARGV[0], $ARGV[1]);
     }
   }
   else
@@ -62,7 +86,11 @@ else
     print "Starting multi_minify in single file mode...\n";
     if(-d $ARGV[1])
     {
-      printError("input argument is single file, but output argument is directory.")
+      printError("input argument not a directory, but output argument is directory.")
+    }
+    else
+    {
+      # BEGIN SINGLE FILE MODE
     }
   }
 }
