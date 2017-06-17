@@ -48,7 +48,8 @@ sub batch
     {
       my @exts = qw(.json .xml);
       my ($name, $dir, $ext) = fileparse($file, @exts);
-      if($name eq '.' || $name eq '..')
+
+      if($name eq '.' || $name eq '..' || $name eq '.DS_Store')
       {
         next;
       }
@@ -76,9 +77,26 @@ sub minify
 
   for ($ext)
   {
-      when ('.json') { print "json\n"; #kickoff json }
-      when ('.xml') { print "xml\n"; #kickoff xml }
-      default { }
+      when ('.json')
+      {
+        # $success = KICKOFF JSON
+        print color('green');
+        print "$file --> $_[1]\n";
+        print color('reset');
+      }
+      when ('.xml')
+      {
+        # $success = KICKOFF XML
+        print color('green');
+        print "$file --> $_[1]\n";
+        print color('reset');
+      }
+      default
+      {
+        print color('yellow');
+        print "$file --> unsupported file type\n";
+        print color('reset');
+      }
   }
 
   return;
@@ -124,7 +142,7 @@ else
     }
     else
     {
-      # BEGIN SINGLE FILE MODE
+      minify($ARGV[0], $ARGV[1]);
     }
   }
 }
