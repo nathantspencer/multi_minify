@@ -1,0 +1,8 @@
+*.json
+*.yaml
+*.DS_Store
+*.xml
+*.yml
+Makefile
+blib/
+pm_to_blib
