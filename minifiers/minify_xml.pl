@@ -13,6 +13,7 @@ while (my $line = <$fh>)
 {
     chomp $line;
     $line =~ s/^\s+//g;
+    $line =~ s/\s+$//g;
     $line =~ s/>\s+</></g;
     push @lines, $line;
 }
