@@ -3,13 +3,19 @@
 ![](https://reposs.herokuapp.com/?path=nathantspencer/multi_minify&color=brightgreen)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nathantspencer/webknossos_toolkit/blob/master/LICENSE.md)
 
-Created to minify batches which may contain many different file formats, multi_minify is an all-in-one minification tool written in Perl. Presently, multi_minify support minification of the following file formats:
+Created to minify batches which may contain many different file formats, multi_minify is an all-in-one minification tool written in Perl.
+
+Presently, multi_minify support minification of the following file formats:
+
  - JSON (`.json`)
  - XML (`.xml`)
  
 ## Setup
 
-To use multi_minify, you'll first need to install the provided module, which contains subroutines used by many of the individual language minifiers. Intallation is simple: open a terminal in the `multi_minify/` directory and enter the following commands.
+To use multi_minify, you'll first need to install the provided module, which contains subroutines used by many of the individual language minifiers.
+
+Installation is simple: open a terminal in the `multi_minify/` directory and enter the following commands.
+
 ``` 
 $ perl Makefile.PL
 $ make
