@@ -4,6 +4,7 @@
 
 Created to minify batches which may contain many different file formats, multi_minify is an all-in-one minification tool written in Perl. Presently, multi_minify support minification of the following file formats:
  - JSON (`.json`)
+ - XML (`.xml`)
  
 ## Setup
 
@@ -45,7 +46,13 @@ A prefix such as `min_` will not be added to the output file's name.
 
 The minification technique for each supported file format is given below.
 
- - **JSON:** Newlines are removed. Spaces and tabs are removed unless they occur inside of double quotes.
+#### JSON
+
+Newlines are removed. All other whitespace is removed unless it occurs inside of double quotes.
+
+#### XML
+ 
+Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag on each line is removed.
 
 
 ## Contact
