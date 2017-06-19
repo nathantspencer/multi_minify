@@ -51,6 +51,11 @@ sub batch
       my @exts = qw(.json .xml);
       my ($name, $dir, $ext) = fileparse($file, @exts);
 
+      if(length($name) >= 4 && substr($name, 0, 4) eq 'min_')
+      {
+        next;
+      }
+
       if($name eq '.' || $name eq '..' || $name eq '.DS_Store')
       {
         next;
@@ -81,17 +86,11 @@ sub minify
   {
       when ('.json')
       {
-        system($^X, "minifiers/minify_json.pl");
-        print color('green');
-        print "$file --> $_[1]\n";
-        print color('reset');
+        system($^X, "minifiers/minify_json.pl", $_[0], $_[1]);
       }
       when ('.xml')
       {
-        system($^X, "minifiers/minify_xml.pl");
-        print color('green');
-        print "$file --> $_[1]\n";
-        print color('reset');
+        system($^X, "minifiers/minify_xml.pl", $_[0], $_[1]);
       }
       default
       {
