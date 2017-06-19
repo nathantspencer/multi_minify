@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use multi_minify_subroutines;
+use multi_minify;
 
 print "\n";
 
@@ -9,7 +9,7 @@ if(@ARGV != 2)
 {
   my $number_of_arguments = @ARGV;
 
-  printError("minify.pl expected 2 arguments, had $number_of_arguments.");
+  multi_minify::printError("minify.pl expected 2 arguments, had $number_of_arguments.");
 
   print "\nTo minify a single file, use this script as shown below:\n";
   print "\$ perl minify.pl input.json output.json\n";
@@ -24,11 +24,11 @@ else
     print "Starting multi_minify in batch mode...\n";
     if(! -d $ARGV[1])
     {
-      printError("input argument is batch, but output argument is not a directory")
+      multi_minify::printError("input argument is batch, but output argument is not a directory")
     }
     else
     {
-      multi_minify_subroutines::batch($ARGV[0], $ARGV[1]);
+      multi_minify::batch($ARGV[0], $ARGV[1]);
     }
   }
   else
@@ -36,11 +36,11 @@ else
     print "Starting multi_minify in single file mode...\n";
     if(-d $ARGV[1])
     {
-      printError("input argument not a directory, but output argument is directory.")
+      multi_minify::printError("input argument not a directory, but output argument is directory.")
     }
     else
     {
-      multi_minify_subroutines::minify($ARGV[0], $ARGV[1]);
+      multi_minify::minify($ARGV[0], $ARGV[1]);
     }
   }
 }

@@ -2,10 +2,10 @@
 use strict;
 use warnings;
 use Term::ANSIColor;
-use multi_minify_subroutines;
+use multi_minify;
 
 open(my $fh, '<:encoding(UTF-8)', $ARGV[0])
-  or die printError("file $ARGV[0] could not be opened.");
+  or die multi_minify::printError("file $ARGV[0] could not be opened.");
 
 my @lines;
 my $quoteCount = 0;
@@ -42,7 +42,7 @@ while (my $line = <$fh>)
 
 close $fh;
 
-open($fh, '>', $ARGV[1]) or die printError("file $ARGV[1] could not be written");
+open($fh, '>', $ARGV[1]) or die multi_minify::printError("file $ARGV[1] could not be written");
 
 my $line;
 foreach $line (@lines)

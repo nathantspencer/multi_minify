@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-package multi_minify_subroutines;
+package multi_minify;
 
 use strict;
 use warnings;
