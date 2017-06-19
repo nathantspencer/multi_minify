@@ -1,5 +1,6 @@
 # multi_minify
 
+![](https://reposs.herokuapp.com/?path=nathantspencer/multi_minify&color=brightgreen)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nathantspencer/webknossos_toolkit/blob/master/LICENSE.md)
 
 Created to minify batches which may contain many different file formats, multi_minify is an all-in-one minification tool written in Perl. Presently, multi_minify support minification of the following file formats:
