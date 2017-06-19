@@ -2,33 +2,7 @@
 use strict;
 use warnings;
 use Term::ANSIColor;
-
-#================================= SUBROUTINES ================================#
-
-# params: string error message
-sub printError
-{
-  print color('bold red');
-  print "ERROR: ";
-  print color('reset');
-
-  print color('red');
-  if(@_ > 0)
-  {
-    print $_[0];
-  }
-  else
-  {
-    print("subroutine printError expected an arugment but had none.")
-  }
-  print color('reset');
-  print "\n";
-
-  return;
-}
-
-
-#============================== MAIN BEGINS HERE ==============================#
+use multi_minify_subroutines;
 
 open(my $fh, '<:encoding(UTF-8)', $ARGV[0])
   or die printError("file $ARGV[0] could not be opened.");
