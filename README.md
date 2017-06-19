@@ -46,13 +46,13 @@ A prefix such as `min_` will not be added to the output file's name.
 
 The minification technique for each supported file format is given below.
 
-#### JSON
+| Format | Technique |
+| :-----------: | ------------- |
+| **JSON**      | Newlines are removed. All other whitespace is removed unless it occurs inside of double quotes. |
+| **XML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag on each line is removed.      |
 
-Newlines are removed. All other whitespace is removed unless it occurs inside of double quotes.
-
-#### XML
  
-Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag on each line is removed.
+
 
 
 ## Contact
