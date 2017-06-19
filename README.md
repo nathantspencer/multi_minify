@@ -9,9 +9,9 @@ Created to minify batches which may contain many different file formats, multi_m
 
 To use multi_minify, you'll first need to install the provided module, which contains subroutines used by many of the individual language minifiers. Intallation is simple: open a terminal in the `multi_minify/` directory and enter the following commands.
 ``` 
-perl Makefile.PL
-make
-make install
+$ perl Makefile.PL
+$ make
+$ make install
 ```
  
 ## Usage
