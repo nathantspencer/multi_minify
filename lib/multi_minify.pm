@@ -12,7 +12,7 @@ use v5.10;
 no warnings 'experimental::smartmatch';
 
 use vars '$VERSION';
-$VERSION = '1.0.0';
+$VERSION = '1.0.1';
 
 our @ISA= qw( Exporter );
 our @EXPORT_OK = qw( printError );
@@ -85,7 +85,7 @@ sub batch
 # params: str input file, str output file
 sub minify
 {
-  my @exts = qw(.json .xml);
+  my @exts = qw(.json .xml .svg .html .htm .dae);
   my $file = $_[0];
   my ($name, $dir, $ext) = fileparse($file, @exts);
 
@@ -95,7 +95,7 @@ sub minify
       {
         system($^X, "minifiers/minify_json.pl", $_[0], $_[1]);
       }
-      when ('.xml')
+      when ('.xml' || '.svg' || '.html' || '.htm' || '.dae')
       {
         system($^X, "minifiers/minify_xml.pl", $_[0], $_[1]);
       }
