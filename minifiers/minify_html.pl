@@ -13,6 +13,8 @@ while (my $line = <$fh>)
 {
     chomp $line;
 
+    # remove comments
+    $line =~ s/<!--.*-->//g;
     $line =~ s/^\s+//g;
     $line =~ s/\s+$//g;
     $line =~ s/>\s+</></g;

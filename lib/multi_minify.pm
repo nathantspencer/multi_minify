@@ -95,9 +95,13 @@ sub minify
       {
         system($^X, "minifiers/minify_json.pl", $_[0], $_[1]);
       }
-      when ('.xml' || '.svg' || '.html' || '.htm' || '.dae')
+      when ('.xml' || '.svg' || '.dae')
       {
         system($^X, "minifiers/minify_xml.pl", $_[0], $_[1]);
+      }
+      when ('.html' || '.htm')
+      {
+        system($^X, "minifiers/minify_html.pl", $_[0], $_[1]);
       }
       default
       {
