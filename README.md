@@ -8,7 +8,8 @@ Created to minify batches which may contain many different file formats, multi_m
 Presently, multi_minify support minification of the following file formats:
 
  - JSON (`.json`)
- - XML (`.xml`)
+ - XML (`.xml`, `.svg`, `.dae`)
+ - HTML (`.html`, `.htm`)
  
 ## Setup
 
@@ -57,7 +58,7 @@ The minification technique for each supported file format is given below.
 | :-----------: | ------------- |
 | **JSON**      | Newlines are removed. All other whitespace is removed unless it occurs inside of double quotes. |
 | **XML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag and after the last tag on each line is removed.      |
-
+| **HTML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag and after the last tag on each line is removed.      |
  
 
 
