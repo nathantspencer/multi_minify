@@ -58,7 +58,7 @@ The minification technique for each supported file format is given below.
 | :-----------: | ------------- |
 | **JSON**      | Newlines are removed. All other whitespace is removed unless it occurs inside of double quotes. |
 | **XML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag and after the last tag on each line is removed.      |
-| **HTML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag and after the last tag on each line is removed.      |
+| **HTML**     | Newlines are removed. Between every two tags, if no non-whitespace characters are present, all whitespace is removed. Whitespace before the first tag and after the last tag on each line is removed. Comments are removed.     |
  
 
 
