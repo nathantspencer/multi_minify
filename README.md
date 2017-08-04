@@ -1,4 +1,4 @@
-# multi_minify
+# Introduction
 
 ![](https://reposs.herokuapp.com/?path=nathantspencer/multi_minify&color=brightgreen)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nathantspencer/webknossos_toolkit/blob/master/LICENSE.md)
@@ -11,7 +11,7 @@ Presently, multi_minify support minification of the following file formats:
  - XML (`.xml`, `.svg`, `.dae`)
  - HTML (`.html`, `.htm`)
  
-## Setup
+# Setup
 
 To use multi_minify, you'll first need to install the provided module, which contains subroutines used by many of the individual language minifiers.
 
@@ -23,7 +23,7 @@ $ make
 $ make install
 ```
  
-## Usage
+# Usage
 
 ### Batch Mode
 
@@ -50,7 +50,7 @@ Note that in this case, the output file will be created with the provided name.
 A prefix such as `min_` will not be added to the output file's name.
 
 
-## Minification Details
+# Minification Details
 
 The minification technique for each supported file format is given below.
 
@@ -63,6 +63,6 @@ The minification technique for each supported file format is given below.
 
 
 
-## Contact
+# Contact
 
 Still have questions? Contact me at ntspencer@mix.wvu.edu and I'll get back to you as quickly as possible!
